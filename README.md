@@ -4,14 +4,14 @@ SRS sample task
 
 # Prerequisites:
 
-.NET SDK
+.NET SDK  
 SQL Server LocalDB
 
 # After cloning repo
 
-Run in CLI at the project root in this order:
-"dotnet ef database update"
-"dotnet build"
+Run in CLI at the project root in this order:  
+"dotnet ef database update"  
+"dotnet build"  
 "dotnet run"
 
 Open app in a web browser at https://localhost:7185
