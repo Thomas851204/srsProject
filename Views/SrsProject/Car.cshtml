@@ -1,0 +1,57 @@
+@model IEnumerable<srsProject.Models.Car>
+
+    @{
+    ViewData["Title"] = "Cars";
+}
+
+<h1>List of cars</h1>
+
+<table class=table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LicensePlate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductionDate)
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelIem => car.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Make)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.LicensePlate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.ProductionDate)
+                </td>
+                <td>
+                    <button onclick="location.href='@Url.Action("EditCar", "SrsProject", new { carId = car.Id })'">Edit</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button onclick="location.href='@Url.Action("AddCar", "SrsProject")'">Add new car</button>

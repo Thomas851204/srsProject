@@ -1,0 +1,28 @@
+@model List<srsProject.Models.Car>
+       @{
+    ViewData["Title"] = "Owned cars";
+}
+
+<h1>Cars Owned by the Owner</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Make</th>
+            <th>Model</th>
+            <th>License Plate</th>
+            <th>Production Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model) {
+            <tr>
+                <td>@car.Make</td>
+                <td>@car.Model</td>
+                <td>@car.LicensePlate</td> 
+                <td>@car.ProductionDate</td> 
+            </tr>
+        }
+    </tbody>
+</table>
+<button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Owner", "SrsProject")'">Back to Owners</button>

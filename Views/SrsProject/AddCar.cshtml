@@ -1,0 +1,32 @@
+@model srsProject.Models.Car
+
+@{
+    ViewData["Title"] = "Add Car";
+}
+
+<h1>Add Car</h1>
+
+<form method="post" action="@Url.Action("SaveCar", "SrsProject")">
+ <div class="form-group">
+        <label for="Make">Make:</label>
+        <input type="text" class="form-control" id="Make" name="Make" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Model">Model:</label>
+        <input type="text" class="form-control" id="Model" name="Model"  required />
+    </div>
+
+    <div class="form-group">
+        <label for="LicensePlate">License Plate:</label>
+        <input type="text" class="form-control" id="LicensePlate" name="LicensePlate"  required />
+    </div>
+    <div class="form-group">
+        <label for="ProductionDate">Production Date:</label>
+        <input type="date" class="form-control" id="ProductionDate" name="ProductionDate"  required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Car", "SrsProject")'">Cancel</button>
+
+</form>

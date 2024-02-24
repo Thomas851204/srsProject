@@ -1,0 +1,52 @@
+@model IEnumerable<srsProject.Models.Owner>
+
+    @{
+    ViewData["Title"] = "Owners";
+}
+
+<h1>List of Owners</h1>
+
+<table class=table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var owner in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => owner.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => owner.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => owner.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => owner.BirthDate)
+                </td>
+                 <td>
+                    <button onclick="location.href='@Url.Action("EditOwner", "SrsProject", new { ownerId = owner.Id })'">Edit</button>
+                    <button onclick="location.href='@Url.Action("ListOwnerCars", "SrsProject", new { ownerId = owner.Id })'" class="btn btn-primary">List Owned Cars</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button onclick="location.href='@Url.Action("AddOwner", "SrsProject")'">Add new owner</button>

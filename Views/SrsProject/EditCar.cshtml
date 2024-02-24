@@ -1,0 +1,40 @@
+@model srsProject.Models.Car
+
+@{
+    ViewData["Title"] = "Edit Car Data";
+}
+
+<h1>Edit Car Data</h1>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger" role="alert">
+        Please correct the errors and try again.
+    </div>
+}
+
+<form method="post" action="@Url.Action("UpdateCar", "SrsProject")">
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <div class="form-group">
+        <label for="Make">Make:</label>
+        <input type="text" class="form-control" id="Make" name="Make" value="@Model.Make" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Model">Model:</label>
+        <input type="text" class="form-control" id="Model" name="Model" value="@Model.Model" required />
+    </div>
+
+    <div class="form-group">
+        <label for="LicensePlate">License Plate:</label>
+        <input type="text" class="form-control" id="LicensePlate" name="LicensePlate" value="@Model.LicensePlate" required />
+    </div>
+    <div class="form-group">
+        <label for="ProductionDate">Production Date:</label>
+        <input type="date" class="form-control" id="ProductionDate" name="ProductionDate" value="@Model.ProductionDate.ToString("yyyy-MM-dd")" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+

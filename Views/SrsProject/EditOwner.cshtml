@@ -1,0 +1,36 @@
+@model srsProject.Models.Owner
+
+@{
+    ViewData["Title"] = "Edit Owner Data";
+}
+
+<h1>Edit Owner</h1>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger" role="alert">
+        Please correct the errors and try again.
+    </div>
+}
+
+<form method="post" action="@Url.Action("UpdateOwner", "SrsProject")">
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <div class="form-group">
+        <label for="FirstName">First Name:</label>
+        <input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model.FirstName" required />
+    </div>
+
+    <div class="form-group">
+        <label for="LastName">Last Name:</label>
+        <input type="text" class="form-control" id="LastName" name="LastName" value="@Model.LastName" required />
+    </div>
+
+    <div class="form-group">
+        <label for="BirthDate">Birth Date:</label>
+        <input type="date" class="form-control" id="BirthDate" name="BirthDate" value="@Model.BirthDate.ToString("yyyy-MM-dd")" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
