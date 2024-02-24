@@ -3,9 +3,10 @@
 SRS sample task
 
 # Prerequisites:
-
+https://dotnet.microsoft.com/en-us/download  
 .NET SDK  
-SQL Server LocalDB
+MS SQL Server Express     
+(LocalDB)
 
 # After cloning repo
 
