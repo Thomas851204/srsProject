@@ -4,11 +4,12 @@ SRS sample task
 
 # Prerequisites:
 .NET SDK:  https://dotnet.microsoft.com/en-us/download  
-MS SQL Server Express: https://www.microsoft.com/en-us/sql-server/sql-server-downloads     
+MS SQL Server Express (with LocalDB option enabled): https://www.microsoft.com/en-us/sql-server/sql-server-downloads     
 
 # After cloning repo
 
 Run in CLI at the project root in this order:  
+"dotnet tool install --global dotnet-ef"  
 "dotnet ef database update"  
 "dotnet build"  
 "dotnet run"
