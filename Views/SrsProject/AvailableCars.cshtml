@@ -1,0 +1,31 @@
+@model List<srsProject.Models.Car>
+
+<h1>Available Cars</h1>
+
+<form method="post" action="@Url.Action("AddCarsToOwner", "SrsProject", new { ownerId = ViewData["OwnerId"] })">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Select</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var car in Model)
+            {
+                <tr>
+                    <td>@car.Id</td>
+                    <td>@car.Make</td>
+                    <td>@car.Model</td>
+                    <td><input type="checkbox" name="selectedCars" value="@car.Id" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="submit" value="Save" />
+    <input type="hidden" name="ownerId" value="@ViewData["OwnerId"]" />
+<button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("ListOwnerCars", "SrsProject", new { ownerId = ViewData["OwnerId"], ownerFirstName = ViewData["OwnerFirstName"], ownerLastName = ViewData["OwnerLastName"] })'">Cancel</button>
+</form>
+
