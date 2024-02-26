@@ -3,26 +3,34 @@
     ViewData["Title"] = "Owned cars";
 }
 
-<h1>Cars Owned by the Owner</h1>
+<h1>Cars Owned by @ViewData["OwnerName"]</h1>
 
 <table class="table">
     <thead>
         <tr>
+            <th>Id</th>
             <th>Make</th>
             <th>Model</th>
             <th>License Plate</th>
             <th>Production Date</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var car in Model) {
             <tr>
+                <td>@car.Id</td>
                 <td>@car.Make</td>
                 <td>@car.Model</td>
                 <td>@car.LicensePlate</td> 
                 <td>@car.ProductionDate</td> 
+                <td>
+            <button onclick="location.href='@Url.Action("RemoveCarFromOwner", "SrsProject", new { ownerId = ViewData["OwnerId"], carId = car.Id })'">Delete</button>
+        </td>
             </tr>
         }
     </tbody>
 </table>
 <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Owner", "SrsProject")'">Back to Owners</button>
+<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("AvailableCars", "SrsProject", new { ownerId = ViewData["OwnerId"] })'">Add Car to Owner</button>
+
