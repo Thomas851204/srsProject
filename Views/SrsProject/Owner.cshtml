@@ -43,7 +43,8 @@
                 </td>
                  <td>
                     <button onclick="location.href='@Url.Action("EditOwner", "SrsProject", new { ownerId = owner.Id })'">Edit</button>
-                    <button onclick="location.href='@Url.Action("ListOwnerCars", "SrsProject", new { ownerId = owner.Id })'" class="btn btn-primary">List Owned Cars</button>
+                    <button onclick="location.href='@Url.Action("DeleteOwner", "SrsProject", new { ownerId = owner.Id })'">Delete</button>
+                    <button onclick="location.href='@Url.Action("ListOwnerCars", "SrsProject", new { ownerId = owner.Id})'" class="btn btn-primary">List Owned Cars</button>
                 </td>
             </tr>
         }
